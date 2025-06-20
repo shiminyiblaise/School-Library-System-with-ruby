@@ -24,3 +24,22 @@ teacher.specialization = 'Physics'
 puts "Updated Teacher's Specialization: #{teacher.specialization}"
 puts "\n--- Displaying Person's Age ---"
 puts "Person's Age: #{person.age}"
+
+
+// Example usage of decorators
+require_relative 'person'
+require_relative 'capitalize_decorator'
+require_relative 'trimmer_decorator'
+
+person = Person.new(22, 'maximilianus')
+puts person.correct_name
+# => "maximilianus"
+
+capitalized_person = CapitalizeDecorator.new(person)
+puts capitalized_person.correct_name
+# => "Maximilianus"
+
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+puts capitalized_trimmed_person.correct_name
+# => "Maximilian"
+
