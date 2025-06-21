@@ -43,3 +43,32 @@ capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
 puts capitalized_trimmed_person.correct_name
 # => "Maximilian"
 
+
+#updating the the main.rb 
+# main.rb
+
+require_relative 'person'
+require_relative 'student'
+require_relative 'classroom'
+require_relative 'book'
+require_relative 'rental'
+
+# Set up classroom
+science_class = Classroom.new('Science')
+
+# Create student
+student = Student.new(16, nil, 'Lina')
+science_class.add_student(student)
+
+# Create book and person
+book = Book.new('1984', 'George Orwell')
+person = Person.new(25, 'James')
+
+# Create rental
+rental = Rental.new('2025-06-19', book, person)
+
+# Output check
+puts "Student #{student.name} is in classroom: #{student.classroom.label}"
+puts "Book '#{book.title}' was rented by #{person.name} on #{rental.date}"
+# Displaying all rentals for the book
+
