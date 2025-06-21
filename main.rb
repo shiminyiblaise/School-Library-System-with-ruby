@@ -3,72 +3,27 @@
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
-
-puts "\n--- Creating a Person ---"
-person = Person.new(16, 'Alex', false)
-puts "#{person.name} can use services? #{person.can_use_services?}"
-
-puts "\n--- Creating a Student ---"
-student = Student.new(17, 'Classroom A', 'Jamie')
-puts "#{student.name} plays: #{student.play_hooky}"
-
-puts "\n--- Creating a Teacher ---"
-teacher = Teacher.new(35, 'Mathematics', 'Mrs. Rose')
-puts "#{teacher.name} can use services? #{teacher.can_use_services?}"
-puts "#{teacher.name} teaches: #{teacher.specialization}"
-puts "\n--- Updating Student's Name ---"
-student.name = 'Chris'
-puts "Updated Student's Name: #{student.name}"
-puts "\n--- Updating Teacher's Specialization ---"
-teacher.specialization = 'Physics'
-puts "Updated Teacher's Specialization: #{teacher.specialization}"
-puts "\n--- Displaying Person's Age ---"
-puts "Person's Age: #{person.age}"
-
-
-// Example usage of decorators
-require_relative 'person'
-require_relative 'capitalize_decorator'
-require_relative 'trimmer_decorator'
-
-person = Person.new(22, 'maximilianus')
-puts person.correct_name
-# => "maximilianus"
-
-capitalized_person = CapitalizeDecorator.new(person)
-puts capitalized_person.correct_name
-# => "Maximilianus"
-
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts capitalized_trimmed_person.correct_name
-# => "Maximilian"
-
-
-#updating the the main.rb 
-# main.rb
-
-require_relative 'person'
-require_relative 'student'
 require_relative 'classroom'
 require_relative 'book'
 require_relative 'rental'
+require_relative 'capitalize_decorator'
+require_relative 'trimmer_decorator'
 
-# Set up classroom
-science_class = Classroom.new('Science')
+puts '--- Testing Person, Student, Teacher ---'
+person = Person.new(16, 'Alex', false)
+puts "#{person.name} can use services? #{person.can_use_services?}"
 
-# Create student
-student = Student.new(16, nil, 'Lina')
-science_class.add_student(student)
+student = Student.new(17, nil, 'Jamie')
+puts "#{student.name} plays: #{student.play_hooky}"
 
-# Create book and person
-book = Book.new('1984', 'George Orwell')
-person = Person.new(25, 'James')
+teacher = Teacher.new(35, 'Mathematics', 'Mrs. Rose')
+puts "#{teacher.name} can use services? #{teacher.can_use_services?}"
+puts "#{teacher.name} teaches: #{teacher.specialization}"
 
-# Create rental
-rental = Rental.new('2025-06-19', book, person)
-
-# Output check
-puts "Student #{student.name} is in classroom: #{student.classroom.label}"
-puts "Book '#{book.title}' was rented by #{person.name} on #{rental.date}"
-# Displaying all rentals for the book
-
+puts "\n--- Updating Attributes ---"
+student.name = 'Chris'
+puts "Updated Student's Name: #{student.name}"
+teacher.specialization = 'Physics'
+puts "Updated Teac
+her's Specialization: #{teacher.specialization}"
+puts "\n--- Testing Decorators ---"
