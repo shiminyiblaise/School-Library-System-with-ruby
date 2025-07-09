@@ -64,6 +64,7 @@ A Ruby-based console application for managing a school library system. This proj
 - Extend `Person` to build `Student` and `Teacher` classes with unique behaviors.
 - Override and extend methods to simulate real-world roles and access control.
 - Well-structured and modular Ruby codebase — each class is saved in a separate file.
+- added Basic UI 
 
 
 A demo link will be uploaded subsequently.
@@ -125,8 +126,6 @@ sh
  FUTURE FEATURES 
 
  ## 🔭 Future Features <a name="future-features"></a>
-
-- add u
 - accessibilty feature
 ## 🤝 Contributing <a name="contributing"></a>
 

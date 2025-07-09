@@ -17,3 +17,12 @@ end
 # book = Book.new('1984', 'George Orwell')
 # puts book.title # Output: 1984
 # puts book.author # Output: George Orwell
+
+class Book
+  attr_accessor :title, :author
+
+  def initialize(title, author)
+    @title = title
+    @author = author
+  end
+end
