@@ -1,19 +1,14 @@
 require_relative 'person'
 
 class Student < Person
-  attr_accessor :classroom
+  attr_reader :parent_permission
 
-  def initialize(age, classroom = nil, name = 'Unknown', parent_permission = true)
-    super(age, name, parent_permission)
-    self.classroom = classroom unless classroom.nil?
+  def initialize(age, name = 'Unknown', parent_permission: true)
+    super(age, name)
+    @parent_permission = parent_permission
   end
 
-  def classroom=(classroom)
-    @classroom = classroom
-    classroom.add_student(self) unless classroom.students.include?(self)
-  end
-
-  def play_hooky
-    "¯\\(ツ)/¯"
+  def can_use_services?
+    @parent_permission || super
   end
 end

@@ -1,14 +1,10 @@
-# trimmer_decorator.rb
-
-require_relative 'decorator'
+# require_relative 'decorator'
 
 class TrimmerDecorator < Decorator
   def correct_name
-    @nameable.correct_name[0, 10]
+    name = @nameable.correct_name
+    name.length > 10 ? name[0..9] : name
   end
 end
-
-# Example usage:
-# nameable = Nameable.new
-# person = Person.new(20, 'This name is way too long')
-# decorated_person = TrimmerDecorator.new(person)
+# # Example usage:
+# # trimmer_decorator = TrimmerDecorator.new(nameable)

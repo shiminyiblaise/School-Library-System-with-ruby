@@ -1,9 +1,8 @@
-# decorator.rb
-
-require_relative 'nameable'
+# require_relative 'nameable'
 
 class Decorator < Nameable
   def initialize(nameable)
+    super()
     @nameable = nameable
   end
 
@@ -11,3 +10,5 @@ class Decorator < Nameable
     @nameable.correct_name
   end
 end
+# # Example usage:
+# # decorator = Decorator.new(nameable)
